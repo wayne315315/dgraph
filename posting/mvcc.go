@@ -298,10 +298,10 @@ func (txn *Txn) ToSkiplist() error {
 			continue
 		}
 
-		if err := badger.ValidEntry(pstore, k, data); err != nil {
-			glog.Errorf("Invalid Entry. len(key): %d len(val): %d\n", len(k), len(data))
-			continue
-		}
+		//if err := badger.ValidEntry(pstore, k, data); err != nil {
+		//	glog.Errorf("Invalid Entry. len(key): %d len(val): %d\n", len(k), len(data))
+		//	continue
+		//}
 		b.Add(y.KeyWithTs(k, math.MaxUint64),
 			y.ValueStruct{
 				Value:    data,
